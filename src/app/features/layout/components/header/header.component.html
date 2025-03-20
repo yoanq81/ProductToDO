@@ -1,0 +1,21 @@
+<mat-toolbar class="header-toolbar">
+  @if (showToggle()) {
+  <button mat-icon-button type="button" (click)="toggleSidenav.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  }
+  <span>Gestor de Productos</span>
+
+  <span class="flex-auto"></span>
+
+  <button
+    mat-icon-button
+    class="not-md:!hidden"
+    type="button"
+    (click)="toggleFullscreen()"
+    matTooltip="Cambiar a pantalla completa"
+  >
+    <mat-icon>fullscreen</mat-icon>
+  </button>
+  <app-theme-toggle />
+</mat-toolbar>

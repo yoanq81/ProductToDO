@@ -1,0 +1,45 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  @for (item of dataSource(); track item.id) {
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{ item.title }}</mat-card-title>
+        <img
+          mat-card-sm-image
+          [src]="item.thumbnail"
+          alt="Imagen para el producto"
+        />
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="grid grid-cols-2 gap-2 my-4">
+        <div class="col-span-2">{{ item.description }}</div>
+        <div class="col-span-1">{{ item.category }}</div>
+        <div class="col-span-1">Precio: {{ item.price }}</div>
+        <div class="col-span-1">{{ item.brand }}</div>
+        <div class="col-span-1">Stock: {{ item.stock }}</div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-icon-button
+        color="primary"
+        title="Aprobar"
+        type="button"
+        (click)="approveProduct(item.id, item.title)"
+      >
+        <mat-icon>approval</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="primary"
+        title="Rechazar"
+        type="button"
+        (click)="rejectProduct(item.id, item.title)"
+      >
+        <mat-icon>block</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  }
+</div>

@@ -1,0 +1,47 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8">
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Productos Pendientes</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      @if (hasPendingProducts()) {
+      <mat-list>
+        @for (item of dataSourcePendingProducts(); track item.id) {
+        <mat-list-item>
+          <span matListItemTitle>{{ item.title }}</span>
+          <span matListItemLine>{{ item.description }}</span>
+        </mat-list-item>
+        }
+      </mat-list>
+      } @else {
+        <h3>No existen Productos Pendientes!</h3>
+      }
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button type="button" (click)="goToRoute('/pending-products')">Ir a Productos Pendientes</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Productos revisados</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      @if (hasProducts()) {
+      <mat-list>
+        @for (item of dataSourceProducts(); track item.id) {
+        <mat-list-item>
+          <span matListItemTitle>{{ item.title }}</span>
+          <span matListItemLine>{{ item.description }}</span>
+        </mat-list-item>
+        }
+      </mat-list>
+      } @else {
+        <h3>No existen Productos Revisados</h3>
+      }
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button type="button" (click)="goToRoute('/products')">Ir a Productos Revisados</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

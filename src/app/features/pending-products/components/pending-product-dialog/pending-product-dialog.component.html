@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<mat-dialog-content>
+  <img [src]="data.thumbnail" class="max-h-20 max-w-20" alt="Imagen para el producto" />
+  <div class="grid grid-cols-2 gap-2 my-4">
+    <div class="col-span-2">{{ data.description }}</div>
+    <div class="col-span-1">{{ data.category }}</div>
+    <div class="col-span-1">Precio: {{ data.price }}</div>
+    <div class="col-span-1">{{ data.brand }}</div>
+    <div class="col-span-1">Stock: {{ data.stock }}</div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button type="button" (click)="onNoClick()">Cerrar</button>
+</mat-dialog-actions>

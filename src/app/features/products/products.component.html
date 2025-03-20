@@ -1,0 +1,40 @@
+<div class="flex p-4 w-full justify-around">
+    <mat-form-field class="w-45 md:w-60 lg:w-xl">
+      <mat-label>Filtrar por Estado</mat-label>
+      <mat-select
+        [value]="stateFilter()"
+        (valueChange)="selectValueChange($event)"
+      >
+        <mat-option>Todos</mat-option>
+        <mat-option [value]="'approved'">Aprobados</mat-option>
+        <mat-option [value]="'rejected'">Rechazados</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="flex gap-1 lg:gap-2 items-center">
+      <mat-button-toggle-group
+        [ngModel]="viewSelected()"
+        aria-label="Tipo de vista a mostrar"
+        hideSingleSelectionIndicator="true"
+        (change)="changeViewSelected($event.value)"
+      >
+        <mat-button-toggle [value]="'table'" matTooltip="Vista tabla"
+          ><mat-icon>table_view</mat-icon></mat-button-toggle
+        >
+        <mat-button-toggle [value]="'card'" matTooltip="Vista tarjetas"
+          ><mat-icon>cards</mat-icon></mat-button-toggle
+        >
+      </mat-button-toggle-group>
+  
+      <button mat-icon-button type="button" matTooltip="Actualizar listado productos pendientes" (click)="reloadPendingProducts()">
+        <mat-icon>sync</mat-icon>
+      </button>
+    </div>
+  </div>
+  
+  <div class="p-4 w-full mb-12">
+    @if(viewSelected() == 'table') {
+      <app-product-table-view />
+    } @else {
+      <app-product-card-view />
+    }
+  </div>
