@@ -26,7 +26,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ProductTableViewComponent,
   ],
   templateUrl: './products.component.html',
-  styleUrl: './products.component.scss',
 })
 export default class ProductsComponent {
   readonly #productsService = inject(ProductsService);

@@ -8,7 +8,6 @@ import { PendingProductsService } from '../../../../core/services/pending-produc
   selector: 'app-pp-card-view',
   imports: [MatCardModule, MatIconModule, MatButtonModule],
   templateUrl: './card-view.component.html',
-  styleUrl: './card-view.component.scss'
 })
 export class PendingProductCardViewComponent {
   readonly #pendingProductsService = inject(PendingProductsService);

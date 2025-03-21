@@ -25,7 +25,12 @@
       >
     </mat-button-toggle-group>
 
-    <button mat-icon-button type="button" matTooltip="Actualizar listado productos pendientes" (click)="reloadPendingProducts()">
+    <button
+      mat-icon-button
+      type="button"
+      matTooltip="Actualizar listado productos pendientes"
+      (click)="reloadPendingProducts()"
+    >
       <mat-icon>sync</mat-icon>
     </button>
   </div>
@@ -33,8 +38,8 @@
 
 <div class="p-4 w-full mb-12">
   @if(viewSelected() == 'table') {
-    <app-pp-table-view />
+  <app-pp-table-view />
   } @else {
-    <app-pp-card-view />
+  <app-pp-card-view />
   }
 </div>

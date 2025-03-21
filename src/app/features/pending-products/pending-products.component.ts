@@ -25,12 +25,13 @@ import { PendingProductCardViewComponent } from './components/card-view/card-vie
     PendingProductCardViewComponent,
   ],
   templateUrl: './pending-products.component.html',
-  styleUrl: './pending-products.component.scss',
 })
 export default class PendingProductsComponent {
   readonly #pendingProductsService = inject(PendingProductsService);
   numberOfElements = signal(this.#pendingProductsService.elementToReturn);
-  viewSelected = signal<ViewSelected>(this.#pendingProductsService.viewSelected);
+  viewSelected = signal<ViewSelected>(
+    this.#pendingProductsService.viewSelected
+  );
 
   selectValueChange(value: number) {
     this.numberOfElements.set(value);

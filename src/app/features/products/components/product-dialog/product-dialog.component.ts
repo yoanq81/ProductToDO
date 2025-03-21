@@ -11,12 +11,13 @@ import { PendingProduct } from '../../../../core/models/pending-products.type';
 
 @Component({
   selector: 'app-product-dialog',
-  imports: [MatButtonModule,
+  imports: [
+    MatButtonModule,
     MatDialogTitle,
     MatDialogContent,
-    MatDialogActions],
+    MatDialogActions,
+  ],
   templateUrl: './product-dialog.component.html',
-  styleUrl: './product-dialog.component.scss'
 })
 export class ProductDialogComponent {
   readonly dialogRef = inject(MatDialogRef<ProductDialogComponent>);

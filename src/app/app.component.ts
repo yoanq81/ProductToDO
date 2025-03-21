@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { LayoutComponent } from "./features/layout/layout.component";
+import { LayoutComponent } from './features/layout/layout.component';
 import { MatIconRegistry } from '@angular/material/icon';
 import { ThemeService } from './core/services/theme.service';
 
@@ -7,7 +7,7 @@ import { ThemeService } from './core/services/theme.service';
   selector: 'app-root',
   imports: [LayoutComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
   title = 'ProductToDo';

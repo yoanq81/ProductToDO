@@ -8,7 +8,6 @@ import { ProductsService } from '../../../../core/services/products.service';
   selector: 'app-product-card-view',
   imports: [MatCardModule, MatIconModule, MatButtonModule],
   templateUrl: './card-view.component.html',
-  styleUrl: './card-view.component.scss'
 })
 export class ProductCardViewComponent {
   readonly #productsService = inject(ProductsService);
@@ -18,7 +17,9 @@ export class ProductCardViewComponent {
   );
 
   async deleteProduct(productId: number, productName: string) {
-    if (confirm('Está seguro que desea eliminar el producto ' + productName + '?')) {
+    if (
+      confirm('Está seguro que desea eliminar el producto ' + productName + '?')
+    ) {
       await this.#productsService.deleteProduct(productId);
       this.#productsService.refreshProducts();
     }

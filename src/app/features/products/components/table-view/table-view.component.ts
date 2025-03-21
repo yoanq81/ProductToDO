@@ -44,8 +44,14 @@ export class ProductTableViewComponent {
     'brand',
     'action',
   ];
-  #smallDisplayedColumns: string[] = ['state', 'title', 'category', 'price', 'action'];
-  #xsmallDisplayedColumns: string[] = ['state','title', 'action'];
+  #smallDisplayedColumns: string[] = [
+    'state',
+    'title',
+    'category',
+    'price',
+    'action',
+  ];
+  #xsmallDisplayedColumns: string[] = ['state', 'title', 'action'];
   protected readonly displayedColumns = computed(() => {
     return this.#smallSignal()
       ? this.#smallDisplayedColumns
@@ -70,7 +76,9 @@ export class ProductTableViewComponent {
   }
 
   async deleteProduct(productId: number, productName: string) {
-    if (confirm('Está seguro que desea eliminar el producto ' + productName + '?')) {
+    if (
+      confirm('Está seguro que desea eliminar el producto ' + productName + '?')
+    ) {
       await this.#productsService.deleteProduct(productId);
       this.#productsService.refreshProducts();
     }
