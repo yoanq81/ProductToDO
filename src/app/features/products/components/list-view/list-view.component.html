@@ -1,0 +1,29 @@
+<mat-card appearance="outlined">
+  <mat-card-content>
+    <cdk-virtual-scroll-viewport itemSize="50" class="h-40 lg:h-[60vh]">
+      <div *cdkVirtualFor="let item of dataSourceProduct" class="h-10">{{item.title}}</div>
+    </cdk-virtual-scroll-viewport>
+
+    <!-- <cdk-virtual-scroll-viewport itemSize="50" class="h-30">
+      <div *cdkVirtualFor="let item of dataSource()" class="h-10">{{item.title}}</div>
+    </cdk-virtual-scroll-viewport> -->
+          <!-- <button
+            mat-icon-button
+            color="primary"
+            title="Mostrar detalles"
+            type="button"
+            (click)="openDialog(element)"
+          >
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="primary"
+            title="Eliminar producto"
+            type="button"
+            (click)="deleteProduct(element.id, element.title)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button> -->
+  </mat-card-content>
+</mat-card>

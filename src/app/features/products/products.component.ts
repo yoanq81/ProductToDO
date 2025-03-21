@@ -11,6 +11,7 @@ import { ProductsService } from '../../core/services/products.service';
 import { ViewSelected } from '../../core/models/view-selected.type';
 import { State } from '../../core/models/products.type';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ProductListViewComponent } from "./components/list-view/list-view.component";
 
 @Component({
   selector: 'app-products',
@@ -24,7 +25,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTooltipModule,
     ProductCardViewComponent,
     ProductTableViewComponent,
-  ],
+    ProductListViewComponent
+],
   templateUrl: './products.component.html',
 })
 export default class ProductsComponent {

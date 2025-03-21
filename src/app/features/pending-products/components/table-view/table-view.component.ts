@@ -15,7 +15,6 @@ import { PendingProductDialogComponent } from '../pending-product-dialog/pending
   selector: 'app-pp-table-view',
   imports: [MatTableModule, MatCardModule, MatIconModule, MatButtonModule],
   templateUrl: './table-view.component.html',
-  styleUrl: './table-view.component.scss',
 })
 export class PendingProductTableViewComponent {
   readonly #pendingProductsService = inject(PendingProductsService);

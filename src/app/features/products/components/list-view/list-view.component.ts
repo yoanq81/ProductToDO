@@ -8,16 +8,17 @@ import { map, shareReplay } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 import { ProductDialogComponent } from '../product-dialog/product-dialog.component';
 import { ProductList } from '../../../../core/models/products.type';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
-  selector: 'app-product-table-view',
-  imports: [MatTableModule, MatCardModule, MatIconModule, MatButtonModule, MatPaginatorModule],
-  templateUrl: './table-view.component.html',
+  selector: 'app-product-list-view',
+  imports: [ScrollingModule, MatCardModule, MatIconModule, MatButtonModule],
+  templateUrl: './list-view.component.html',
 })
-export class ProductTableViewComponent implements AfterViewInit {
+export class ProductListViewComponent {
   readonly #productsService = inject(ProductsService);
   readonly #breakpointObserver = inject(BreakpointObserver);
   readonly dialog = inject(MatDialog);
@@ -66,16 +67,12 @@ export class ProductTableViewComponent implements AfterViewInit {
   );
 
   dataSourceProduct = new MatTableDataSource<ProductList>();
-  readonly paginator = viewChild.required(MatPaginator);
 
   constructor() {
     effect(() => {
       this.dataSourceProduct.data = this.products.value() ?? [];
+      console.log(this.dataSourceProduct.data);
     });
-  }
-
-  ngAfterViewInit() {
-    this.dataSourceProduct.paginator = this.paginator();
   }
 
   openDialog(element: ProductList): void {

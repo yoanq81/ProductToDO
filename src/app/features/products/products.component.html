@@ -23,6 +23,9 @@
       <mat-button-toggle [value]="'card'" matTooltip="Vista tarjetas"
         ><mat-icon>cards</mat-icon></mat-button-toggle
       >
+      <mat-button-toggle [value]="'list'" matTooltip="Vista lista"
+        ><mat-icon>view_list</mat-icon></mat-button-toggle
+      >
     </mat-button-toggle-group>
 
     <button
@@ -37,9 +40,11 @@
 </div>
 
 <div class="p-4 w-full mb-12">
-  @if(viewSelected() == 'table') {
+  @if (viewSelected() == 'table') {
   <app-product-table-view />
-  } @else {
+  } @else if (viewSelected() == 'card') {
   <app-product-card-view />
+  } @else {
+    <app-product-list-view />
   }
 </div>

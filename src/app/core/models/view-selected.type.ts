@@ -1,1 +1,1 @@
-export type ViewSelected = 'table' | 'card';
+export type ViewSelected = 'table' | 'card' | 'list';
