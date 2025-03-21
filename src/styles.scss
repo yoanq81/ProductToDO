@@ -2,6 +2,12 @@
 @use '@angular/material' as mat;
 @import "./app/styles/tailwind-import.css";
 
+:root {
+  --sidenav-width: 12.5rem;
+  --mat-sidenav-container-width: var(--sidenav-width);
+  --mat-sidenav-content-background-color: transparent;
+}
+
 html,
 body {
   height: 100%;
@@ -11,7 +17,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 body {
-  background: var(--mat-sys-surface);
+  background: var(--mat-sys-surface-container-low);
   color: var(--mat-sys-on-surface);
   transition: background-color 200ms, color 200ms;
 }
