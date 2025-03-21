@@ -1,17 +1,13 @@
-import { AfterViewInit, Component, computed, effect, inject, viewChild } from '@angular/core';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { Component, effect, inject } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { ProductsService } from '../../../../core/services/products.service';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { map, shareReplay } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
-import {ScrollingModule} from '@angular/cdk/scrolling';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ProductDialogComponent } from '../product-dialog/product-dialog.component';
 import { ProductList } from '../../../../core/models/products.type';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-product-list-view',
@@ -20,58 +16,14 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 })
 export class ProductListViewComponent {
   readonly #productsService = inject(ProductsService);
-  readonly #breakpointObserver = inject(BreakpointObserver);
   readonly dialog = inject(MatDialog);
 
-  #smallSignal = toSignal(
-    this.#breakpointObserver.observe(Breakpoints.Small).pipe(
-      map((result) => result.matches),
-      shareReplay()
-    )
-  );
-  #xsmallSignal = toSignal(
-    this.#breakpointObserver.observe(Breakpoints.XSmall).pipe(
-      map((result) => result.matches),
-      shareReplay()
-    )
-  );
-  #fullDisplayedColumns: string[] = [
-    'state',
-    'title',
-    'description',
-    'category',
-    'price',
-    'stock',
-    'brand',
-    'action',
-  ];
-  #smallDisplayedColumns: string[] = [
-    'state',
-    'title',
-    'category',
-    'price',
-    'action',
-  ];
-  #xsmallDisplayedColumns: string[] = ['state', 'title', 'action'];
-  protected readonly displayedColumns = computed(() => {
-    return this.#smallSignal()
-      ? this.#smallDisplayedColumns
-      : this.#xsmallSignal()
-      ? this.#xsmallDisplayedColumns
-      : this.#fullDisplayedColumns;
-  });
-
   products = this.#productsService.productsRes;
-  dataSource = computed(() =>
-    this.products.hasValue() ? this.products.value()! : []
-  );
-
   dataSourceProduct = new MatTableDataSource<ProductList>();
 
   constructor() {
     effect(() => {
       this.dataSourceProduct.data = this.products.value() ?? [];
-      console.log(this.dataSourceProduct.data);
     });
   }
 

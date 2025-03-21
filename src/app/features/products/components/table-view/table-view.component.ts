@@ -61,10 +61,6 @@ export class ProductTableViewComponent implements AfterViewInit {
   });
 
   products = this.#productsService.productsRes;
-  dataSource = computed(() =>
-    this.products.hasValue() ? this.products.value()! : []
-  );
-
   dataSourceProduct = new MatTableDataSource<ProductList>();
   readonly paginator = viewChild.required(MatPaginator);
 
