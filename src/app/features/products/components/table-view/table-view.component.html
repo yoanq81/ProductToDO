@@ -1,6 +1,6 @@
 <mat-card appearance="outlined">
-  <mat-card-content
-    ><table mat-table [dataSource]="dataSource()" class="mat-elevation-z8">
+  <mat-card-content>
+    <table mat-table [dataSource]="dataSourceProduct" class="mat-elevation-z8">
       <!-- Id Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>Id</th>
@@ -86,5 +86,10 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns()"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns()"></tr>
     </table>
+    <mat-paginator
+      [pageSizeOptions]="[7]"
+      [pageSize]="7"
+      showFirstLastButtons
+    ></mat-paginator>
   </mat-card-content>
 </mat-card>

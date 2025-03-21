@@ -7,7 +7,7 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
-import { PendingProduct } from '../../../../core/models/pending-products.type';
+import { ProductList } from '../../../../core/models/products.type';
 
 @Component({
   selector: 'app-product-dialog',
@@ -21,7 +21,7 @@ import { PendingProduct } from '../../../../core/models/pending-products.type';
 })
 export class ProductDialogComponent {
   readonly dialogRef = inject(MatDialogRef<ProductDialogComponent>);
-  readonly data = inject<PendingProduct>(MAT_DIALOG_DATA);
+  readonly data = inject<ProductList>(MAT_DIALOG_DATA);
 
   onNoClick(): void {
     this.dialogRef.close();
