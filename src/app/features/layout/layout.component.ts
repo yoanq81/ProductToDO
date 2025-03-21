@@ -15,6 +15,7 @@ import { HeaderComponent } from './components/header/header.component';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
+  styleUrl: './layout.component.scss',
   imports: [
     MatToolbarModule,
     MatButtonModule,
