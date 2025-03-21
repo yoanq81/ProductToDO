@@ -1,26 +1,45 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
+<mat-sidenav-container class="h-full">
+  <mat-sidenav
+    #drawer
+    class="!w-50"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
     <mat-toolbar class="justify-center">
       <a class="flex no-underline" href="/">
-      <img src="imagotipo.svg" class="w-[150px] h-[64px] max-w-[150px] mx-0 my-5" alt="Logo" />
-    </a></mat-toolbar>
+        <img
+          src="imagotipo.svg"
+          class="w-[150px] h-[64px] max-w-[150px] mx-0 my-5"
+          alt="Logo"
+        /> </a
+    ></mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="dashboard" routerLinkActive="active">Dashboard</a>
-      <a mat-list-item routerLink="pending-products" routerLinkActive="active">Productos pendientes</a>
-      <a mat-list-item routerLink="products" routerLinkActive="active">Productos revisados</a>
+      <a mat-list-item routerLink="dashboard" routerLinkActive="active"
+        >Dashboard</a
+      >
+      <a mat-list-item routerLink="pending-products" routerLinkActive="active"
+        >Productos pendientes</a
+      >
+      <a mat-list-item routerLink="products" routerLinkActive="active"
+        >Productos revisados</a
+      >
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-header [showToggle]="!!(isHandset$ | async)"
-    (toggleSidenav)="drawer.toggle()" class="sticky top-0 z-1"/>
-    <main class="scrollbar-thumb-rounded scrollbar-track-rounded grow overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-muted">
+    <app-header
+      [showToggle]="!!(isHandset$ | async)"
+      (toggleSidenav)="drawer.toggle()"
+      class="sticky top-0 z-1"
+    />
+    <main
+      class="scrollbar-thumb-rounded scrollbar-track-rounded grow overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-muted"
+    >
       <div class="mx-auto px-4 py-4 sm:px-8 lg:container">
-      <router-outlet />
-    </div>
+        <router-outlet />
+      </div>
     </main>
-    <app-footer class="lg:bottom-0 lg:fixed"/>
+    <app-footer class="lg:bottom-0 lg:fixed" />
   </mat-sidenav-content>
 </mat-sidenav-container>

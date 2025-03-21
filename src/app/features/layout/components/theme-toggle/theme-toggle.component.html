@@ -1,3 +1,10 @@
-<button mat-icon-button type="button" [matTooltip]="isDarkMode() ? 'Cambiar a vista diurna' : 'Cambiar a vista nocturna'" (click)="toggleTheme()">
+<button
+  mat-icon-button
+  type="button"
+  [matTooltip]="
+    isDarkMode() ? 'Cambiar a vista diurna' : 'Cambiar a vista nocturna'
+  "
+  (click)="toggleTheme()"
+>
   <mat-icon>{{ isDarkMode() ? "wb_sunny" : "nights_stay" }}</mat-icon>
 </button>

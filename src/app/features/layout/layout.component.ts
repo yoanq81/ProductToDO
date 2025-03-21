@@ -15,7 +15,6 @@ import { HeaderComponent } from './components/header/header.component';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  styleUrl: './layout.component.scss',
   imports: [
     MatToolbarModule,
     MatButtonModule,
@@ -28,14 +27,15 @@ import { HeaderComponent } from './components/header/header.component';
     RouterLinkActive,
     FooterComponent,
     HeaderComponent,
-  ]
+  ],
 })
 export class LayoutComponent {
   #breakpointObserver = inject(BreakpointObserver);
 
-  isHandset$: Observable<boolean> = this.#breakpointObserver.observe(Breakpoints.Handset)
+  isHandset$: Observable<boolean> = this.#breakpointObserver
+    .observe(Breakpoints.Handset)
     .pipe(
-      map(result => result.matches),
+      map((result) => result.matches),
       shareReplay()
     );
 }

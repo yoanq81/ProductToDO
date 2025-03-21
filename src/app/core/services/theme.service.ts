@@ -7,7 +7,9 @@ import { LocalStorageService } from './storage.service';
 export class ThemeService {
   readonly #key = 'product-todo-theme';
   readonly #storageService = inject(LocalStorageService);
-  #darkMode = signal<boolean>(this.#storageService.get(this.#key)?.theme ?? true);
+  #darkMode = signal<boolean>(
+    this.#storageService.get(this.#key)?.theme ?? true
+  );
 
   isDarkMode() {
     return this.#darkMode();

@@ -10,7 +10,7 @@ export class PendingProduct {
     public price: number,
     public stock: number,
     public brand: string,
-    public thumbnail: string,
+    public thumbnail: string
   ) {}
 }
 
@@ -27,7 +27,7 @@ export class PendingProductAdapter implements Adapter<PendingProduct> {
       item.price,
       item.stock,
       item.brand,
-      item.thumbnail,
+      item.thumbnail
     );
   }
 }

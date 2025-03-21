@@ -8,7 +8,6 @@ import { ThemeService } from '../../../../core/services/theme.service';
   selector: 'app-theme-toggle',
   imports: [MatButtonModule, MatIconModule, MatTooltipModule],
   templateUrl: './theme-toggle.component.html',
-  styleUrl: './theme-toggle.component.scss',
 })
 export class ThemeToggleComponent {
   readonly #themeService = inject(ThemeService);

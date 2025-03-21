@@ -5,7 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   selector: 'app-footer',
   imports: [MatToolbarModule],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
+  styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
   public year: number = new Date().getFullYear();

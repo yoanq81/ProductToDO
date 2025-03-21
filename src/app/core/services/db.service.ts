@@ -9,7 +9,7 @@ export class DbService extends Dexie {
   productList!: Table<ProductList, number>;
 
   constructor() {
-    super('productToDoDB'); //database name 'DexieDB'
+    super('productToDoDB');
 
     this.version(3).stores({
       productList: 'id,state',

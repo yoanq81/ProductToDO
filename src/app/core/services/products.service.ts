@@ -21,8 +21,7 @@ export class ProductsService {
 
   productsRes = resource({
     request: () => ({ state: this.#stateFilter() }),
-    loader: ({ request }) =>
-      this.#db.listProductItem(request.state),
+    loader: ({ request }) => this.#db.listProductItem(request.state),
   });
 
   get stateFilter() {
